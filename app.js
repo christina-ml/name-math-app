@@ -8,6 +8,7 @@ var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
 var mathRouter = require("./routes/math");
 var collatzController = require("./routes/collatz");
+var sayandseeController = require("./routes/sayandsee");
 
 var app = express();
 
@@ -25,6 +26,7 @@ app.use("/", indexRouter);
 app.use("/users", usersRouter);
 app.use("/math", mathRouter);
 app.use("/collatz", collatzController);
+app.use("/sayandsee", sayandseeController);
 
 app.get("/greeting/:name", (req, res) => {
 	const { name } = req.params;
