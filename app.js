@@ -4,11 +4,12 @@ var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 
-var indexRouter = require("./routes/index");
-var usersRouter = require("./routes/users");
-var mathRouter = require("./routes/math");
-var collatzController = require("./routes/collatz");
-var sayandseeController = require("./routes/sayandsee");
+var indexRouter = require("./controllers/indexController");
+var usersRouter = require("./controllers/usersController");
+var mathRouter = require("./controllers/mathController");
+var collatzController = require("./controllers/collatzController");
+var sayandseeController = require("./controllers/sayandseeController");
+var stackController = require("./controllers/stackController");
 
 var app = express();
 
@@ -27,6 +28,7 @@ app.use("/users", usersRouter);
 app.use("/math", mathRouter);
 app.use("/collatz", collatzController);
 app.use("/sayandsee", sayandseeController);
+app.use("/stack", stackController);
 
 app.get("/greeting/:name", (req, res) => {
 	const { name } = req.params;
